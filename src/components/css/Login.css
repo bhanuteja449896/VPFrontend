@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling */
+  background-color: #F3F5F9;
+}
+
+.login-container {
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.login-card {
+  background: #FEFEFE;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100%; /* Allow the card to take full width */
+  max-width: 350px; /* Limit the maximum width to 400px */
+}
+
+.login-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.login-card form {
+  padding-top: 20px;
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 90%; /* Ensure inputs take up full width of the parent */
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Sign In Button */
+.signin-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6206c4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.signin-button:hover {
+  background-color: #4e0899;
+}
+
+/* Create Account */
+.create-account {
+  font-size: 14px;
+  color: #666;
+  margin-top: 20px;
+}
+
+.create-account a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.create-account a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+    width: 100%; /* Full width on smaller screens */
+    max-width: 100%; /* Remove the max-width limit */
+    margin-bottom: 10%;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .login-card h2 {
+    font-size: 20px;
+  }
+
+  .login-card p {
+    font-size: 12px;
+  }
+
+  .input-group input {
+    width: 93%;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .signin-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
