@@ -19,7 +19,7 @@ const Login = () => {
       console.log(response);
       if(response.data.rc==='00'){
         localStorage.setItem('userMobile',mobile);
-        navigate('/home');
+        navigate('/home');    
       }
       else if(response.data.rc==='01'){
         setMessage('Invalid Password');

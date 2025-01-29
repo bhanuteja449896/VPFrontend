@@ -1,14 +1,14 @@
-.home-container {
-    text-align: center;
-    padding: 50px;
+.content {
+  padding-top: 70px; /* Adjust based on navbar height */
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
   }
-  
-  .home-container h1 {
-    font-size: 36px;
-    color: #333;
+
+  .navbar-nav li {
+    margin: 10px 0;
   }
-  
-  .home-container p {
-    font-size: 18px;
-    color: #666;
-  }
+}
