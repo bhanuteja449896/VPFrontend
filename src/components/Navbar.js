@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './css/Navbar.css';
 
 const Navbar = ({ setActiveComponent }) => {
   const handleLogout = () => {
     localStorage.removeItem('userMobile');
-    window.location.href = '/';
+    window.location.href = '/'; // Redirect to login page
   };
 
   return (
