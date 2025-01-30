@@ -43,4 +43,122 @@
   
   .logout-btn:hover {
     text-decoration: underline;
+  }/* Base styles for the navbar */
+.navbar {
+  display: flex;
+  flex-direction: column; /* Stack logo and nav items vertically */
+  align-items: center; /* Center items horizontally */
+  background-color: #333;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Space between logo and nav items */
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li {
+  margin-left: 20px;
+}
+
+.navbar-nav li:first-child {
+  margin-left: 0; /* Remove margin for the first item */
+}
+
+.navbar-nav button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar-nav button:hover {
+  text-decoration: underline;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  text-decoration: underline;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack logo and nav items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 10px;
   }
+
+  .navbar-brand {
+    margin-bottom: 10px; /* Space between logo and nav items */
+  }
+
+  .navbar-nav {
+    flex-direction: row; /* Keep nav items horizontal */
+    justify-content: center; /* Center nav items horizontally */
+    flex-wrap: wrap; /* Allow wrapping if too many items */
+  }
+
+  .navbar-nav li {
+    margin: 0 10px; /* Adjust spacing between nav items */
+  }
+
+  .navbar-nav button {
+    font-size: 16px; /* Slightly smaller font for mobile */
+  }
+
+  .logout-btn {
+    font-size: 16px; /* Slightly smaller font for mobile */
+  }
+}
+
+/* PC styles */
+@media (min-width: 769px) {
+  .navbar {
+    flex-direction: row; /* Logo and nav items in a row */
+    justify-content: space-between; /* Space between logo and nav items */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+  }
+
+  .navbar-brand {
+    margin-bottom: 0; /* Reset margin for PC */
+  }
+
+  .navbar-nav {
+    flex-direction: row; /* Keep nav items horizontal */
+  }
+
+  .navbar-nav li {
+    margin-left: 20px; /* Spacing between nav items */
+  }
+
+  .navbar-nav button {
+    font-size: 18px; /* Reset font size for PC */
+  }
+
+  .logout-btn {
+    font-size: 18px; /* Reset font size for PC */
+  }
+}

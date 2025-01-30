@@ -1,14 +1,69 @@
+/* 📌 About Page Container */
 .about-container {
-    text-align: center;
-    padding: 50px;
+  text-align: center;
+  padding: 80px 20px 50px; /* Increased padding at the top to avoid navbar overlap */
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 📌 User Card */
+.user-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left; /* Align text to the left */
+  width: 90%;
+  max-width: 400px;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 20px; /* Adds space between navbar and card */
+}
+
+.user-card:hover {
+  transform: scale(1.05);
+}
+
+/* 📌 User Icon */
+.user-icon {
+  font-size: 80px;
+  color: #3498db;
+  display: block;
+  margin: 0 auto 15px; /* Centers the icon */
+}
+
+/* 📌 User Details */
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-details p {
+  font-size: 18px;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* 📱 Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 100px 20px 30px; /* Extra padding at the top for the navbar */
   }
-  
-  .about-container h1 {
-    font-size: 36px;
-    color: #333;
+
+  .user-card {
+    width: 95%;
+    padding: 20px;
   }
-  
-  .about-container p {
-    font-size: 18px;
-    color: #666;
+
+  .user-icon {
+    font-size: 60px;
   }
+
+  .user-details p {
+    font-size: 16px;
+  }
+}

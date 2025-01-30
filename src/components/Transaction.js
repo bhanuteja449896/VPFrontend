@@ -5,13 +5,20 @@ import { Transaction_API } from "./api";
 
 const Transaction = () => {
   const [transactions, setTransactions] = useState([]);
+  const [loading, setLoading] = useState(true); // New loading state
   const userMobile = localStorage.getItem("userMobile");
 
   // Function to convert UTC timestamp to IST
   const convertUTCtoIST = (utcTime) => {
-    const utcDate = new Date(utcTime);
-    const istDate = new Date(utcDate.getTime() + 5.5 * 60 * 60 * 1000);
-    return istDate.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    const utcDate = new Date(utcTime); // Convert UTC timestamp to Date object
+    if (isNaN(utcDate.getTime())) {
+      // If the conversion fails (invalid timestamp)
+      return { date: "", time: "" };
+    }
+    const istDate = new Date(utcDate.getTime() + 5.5 * 60 * 60 * 1000); // Convert to IST
+    const date = istDate.toLocaleDateString("en-IN"); // Date in dd/mm/yyyy format
+    const time = istDate.toLocaleTimeString("en-IN"); // Time in hh:mm:ss format
+    return { date, time };
   };
 
   // Fetch transaction data
@@ -26,15 +33,30 @@ const Transaction = () => {
         return new Date(b.timestamp) - new Date(a.timestamp);
       });
 
-      // Convert timestamps to IST
-      const formattedTransactions = sortedTransactions.map((transaction) => ({
-        ...transaction,
-        timestamp: convertUTCtoIST(transaction.timestamp),
-      }));
+      // Convert timestamps to IST and separate Date and Time
+      const formattedTransactions = sortedTransactions.map((transaction) => {
+        // Ensure timestamp exists before attempting to convert
+        if (transaction.timestamp) {
+          const { date, time } = convertUTCtoIST(transaction.timestamp);
+          return {
+            ...transaction,
+            date,
+            time,
+          };
+        } else {
+          return {
+            ...transaction,
+            date: "N/A", // Fallback if no timestamp
+            time: "N/A",
+          };
+        }
+      });
 
       setTransactions(formattedTransactions);
+      setLoading(false); // Data fetched, set loading to false
     } catch (error) {
       console.error("Error fetching transactions:", error);
+      setLoading(false); // In case of error, stop loading
     }
   };
 
@@ -44,9 +66,10 @@ const Transaction = () => {
 
   return (
     <div className="transaction-container">
-      <h1>Transactions</h1>
       <div className="transaction-list">
-        {transactions.length > 0 ? (
+        {loading ? (
+          <p>Loading...</p> // Display loading text until data is fetched
+        ) : transactions.length > 0 ? (
           transactions.map((transaction, index) => (
             <div
               key={index}
@@ -57,18 +80,19 @@ const Transaction = () => {
               <div className="transaction-details">
                 <p><strong>Amount:</strong> {transaction.amount}</p>
                 <p><strong>Status:</strong> {transaction.status}</p>
-                <p><strong>Time:</strong> {transaction.timestamp}</p>
-                <p>
-                  <strong>Type:</strong> {transaction.type} -{" "}
-                  {transaction.type === "Credit"
-                    ? `Received from ${transaction.sender}`
-                    : `Sent to ${transaction.receiver}`}
-                </p>
+                <p><strong>Date:</strong> {transaction.date}</p>
+                <p><strong>Time:</strong> {transaction.time}</p>
+                <p><strong>Type:</strong> {transaction.type}</p>
+                {transaction.type === "Credit" ? (
+                  <p><strong>From:</strong> {transaction.sender}</p>
+                ) : (
+                  <p><strong>To:</strong> {transaction.receiver}</p>
+                )}
               </div>
             </div>
           ))
         ) : (
-          <p>No transactions found.</p>
+          <p className="no-transactions">No transactions found.</p>
         )}
       </div>
     </div>

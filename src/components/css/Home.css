@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  margin: 20px auto 0 auto;
 }
 
 .balance-box {
@@ -39,6 +40,7 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
+  margin: 60px auto 0 auto;
 }
 
 .input-group {
