@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar setActiveComponent={setActiveComponent} />
+      <Navbar setActiveComponent={setActiveComponent} activeComponent={activeComponent} />
       <div className="content">
         {renderComponent()}
       </div>
