@@ -1,5 +1,5 @@
 .content {
-  padding-top: 80px; /* Adjust based on navbar height */
+  padding-top: 70px; /* Adjust based on navbar height */
   text-align: center;
 }
 
@@ -78,10 +78,4 @@
   margin-top: 15px;
   color: #8a2be2;
   font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .content {
-    padding-top: 100px; /* Increase padding for mobile to account for navbar height */
-  }
 }

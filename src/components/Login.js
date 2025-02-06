@@ -8,7 +8,7 @@ const Login = () => {
   const [mobile, setMobile] = useState("");
   const [adminMobile, setAdminMobile] = useState("");
   const [password, setPassword] = useState("");
-  const [adminPassword,setAdminPassword] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
   const [message, setMessage] = useState("");
   const [adminMessage, setAdminMessage] = useState("");
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Login = () => {
   useEffect(() => {
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
+    const container = document.getElementById('login-container'); // Updated ID
 
     if (signUpButton && signInButton && container) {
       signUpButton.addEventListener('click', () => {
@@ -49,6 +49,7 @@ const Login = () => {
       alert("Something went wrong");
     }
   };
+
   const handleAdminSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -71,18 +72,18 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="container" id="container">
+    <div className="login-page">
+      <div className="login-container" id="login-container"> {/* Updated class name and ID */}
         <div className="form-container sign-up-container">
           <form onSubmit={handleAdminSubmit}>
             <h1>Admin</h1>
-            <input 
-            type="text" 
-            placeholder="Mobile number"
-            value = {adminMobile}
-            onChange={(e)=> setAdminMobile(e.target.value)}
-            required
-             />
+            <input
+              type="text"
+              placeholder="Mobile number"
+              value={adminMobile}
+              onChange={(e) => setAdminMobile(e.target.value)}
+              required
+            />
             <input
               type="password"
               placeholder="Password"
@@ -94,9 +95,6 @@ const Login = () => {
             <button>Sign in</button>
           </form>
         </div>
-
-
-
 
         <div className="form-container sign-in-container">
           <form onSubmit={handleSubmit}>
@@ -119,8 +117,6 @@ const Login = () => {
             <button type="submit">Sign In</button>
           </form>
         </div>
-
-
 
         <div className="overlay-container">
           <div className="overlay">

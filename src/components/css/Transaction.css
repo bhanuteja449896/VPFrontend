@@ -1,18 +1,22 @@
 /* Base styles for the transaction container */
 .transaction-container {
-  max-width: 800px;
-  margin: 10px auto 0 auto; /* Added 3px gap from the navbar */
+  width: 100%; /* Full width of the screen */
+  max-width: 800px; /* Limit maximum width for larger screens */
+  margin: 10px auto 0 auto; /* Center the container */
   padding: 20px;
   height: calc(100vh - 60px - 3px); /* Adjusted height to maintain scrollability */
   display: flex;
   flex-direction: column;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .transaction-list {
+  width: 100%; /* Match the width of the transaction-container */
   flex-grow: 1; /* Takes up remaining space */
   overflow-y: auto;
   padding-right: 10px;
   margin-bottom: 5px; /* Small space at the bottom */
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .transaction-item {
@@ -24,6 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%; /* Full width of the transaction-list */
 }
 
 .transaction-item.credit {
@@ -63,4 +68,4 @@
     padding: 10px; /* Reduce padding for mobile */
     margin-bottom: 8px; /* Reduce margin for mobile */
   }
-}
+} 
